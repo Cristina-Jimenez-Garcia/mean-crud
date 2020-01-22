@@ -7,9 +7,9 @@ export class Teacher {
         this.salary = salary;
     }
 
-    _id: string;
-    name: string;
-    surname: string;
-    area: string;
-    salary: number;
+    _id: String;
+    name: String;
+    surname: String;
+    area: String;
+    salary: Number;
 }
