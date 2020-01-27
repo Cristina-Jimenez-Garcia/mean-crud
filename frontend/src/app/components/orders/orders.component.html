@@ -3,27 +3,28 @@
         <div class="col s5">
             <div class="card">
                 <div class="card-content">
-                    <form #teacherform="ngForm" (ngSubmit)="addTeacher(teacherform)">
-                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="teacherService.selectedTeacher._id">
+                    <form #orderform="ngForm" (ngSubmit)="addOrder(orderform)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="ordersService.selectedOrder._id">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input type="text" name="name" #name="ngModel" [(ngModel)]="teacherService.selectedTeacher.name" placeholder="Enter your name">
+                                <input type="text" name="name" #name="ngModel" [(ngModel)]="ordersService.selectedOrder.name" placeholder="Enter your name">
                             </div>
                         
                             <div class="input-field col s12">
-                                <input type="text" name="surname" #surname="ngModel" [(ngModel)]="teacherService.selectedTeacher.surname" placeholder="Enter your surname">
+                                <input type="text" name="surname" #surname="ngModel" [(ngModel)]="ordersService.selectedOrder.surname" placeholder="Enter your surname">
                             </div>
 
                             <div class="input-field col s12">
-                                <input type="text" name="area" #area="ngModel" [(ngModel)]="teacherService.selectedTeacher.area" placeholder="Enter your area">
+                                <input type="text" name="direction" #direction="ngModel" [(ngModel)]="ordersService.selectedOrder.direction" placeholder="Enter your direction">
+                            </div>
+                            
+                            <div class="input-field col s12">
+                                <input type="text" name="dished" #dished="ngModel" [(ngModel)]="ordersService.selectedOrder.dished" placeholder="Enter your dished">
                             </div>
 
-                            <div class="input-field col s12">
-                                <input type="number" name="salary" #salary="ngModel" [(ngModel)]="teacherService.selectedTeacher.salary" placeholder="Enter salary">
-                            </div>
                             <div class="card-action">
                                 <div class="input-field col s12">
-                                    <button class="btn" (click)="resetForm(teacherform)">Clean</button>
+                                    <button class="btn" (click)="resetForm(orderform)">Clean</button>
                                     <button class="btn right">Save</button>
                                 </div>
                             </div>
@@ -37,19 +38,20 @@
                 <thead>
                     <th>Name</th>
                     <th>Surname</th>
-                    <th>Area</th>
-                    <th>Operations</th>
+                    <th>Direcction</th>
+                    <th>Dished</th>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let teacher of teacherService.teachers">
-                        <td>{{teacher.name}}</td>
-                        <td>{{teacher.surname}}</td>
-                        <td>{{teacher.area}}</td>
+                    <tr *ngFor="let order of ordersService.orders">
+                        <td>{{order.name}}</td>
+                        <td>{{order.surname}}</td>
+                        <td>{{order.direction}}</td>
+                        <td>{{order.dished}}</td>
                         <td>
-                            <a (click)="editTeacher(teacher)">
+                            <a (click)="editOrder(order)">
                                 <i class="material-icons">edit</i>
                             </a>
-                            <a (click)="deleteTeacher(teacher._id)">
+                            <a (click)="deleteOrder(order._id)">
                                 <i class="material-icons">delete</i>
                             </a>
                         </td>

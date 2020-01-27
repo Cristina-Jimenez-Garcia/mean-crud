@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors({origin:'http://localhost:4200'}));
 
 //Routes
-app.use('/api/teachers', require('./routers/teachers.routers'));
+app.use('/api/orders', require('./routers/orders.routers'));
 
 //Starting the server
 app.listen(app.get('port'),()=>{
