@@ -1,0 +1,58 @@
+<h1>Insert new restaurants</h1>
+<div class="container">
+    <div class="row">
+        <div class="col s5">
+            <div class="card">
+                <div class="card-content">
+                    <form #restaurantform="ngForm" (ngSubmit)="addRestaurant(restaurantform)">
+                        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="restaurantsService.selectedRestaurant._id">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" name="name" #name="ngModel" [(ngModel)]="restaurantsService.selectedRestaurant.name" placeholder="Enter it name">
+                            </div>
+
+                            <div class="input-field col s12">
+                                <input type="text" name="name" #name="ngModel" [(ngModel)]="restaurantsService.selectedRestaurant.name" placeholder="What kind of restaurant is it?">
+                            </div>
+
+                            <div class="input-field col s12">
+                                <input type="text" name="direction" #direction="ngModel" [(ngModel)]="restaurantsService.selectedRestaurant.direction" placeholder="Enter it direction">
+                            </div>
+
+                            <div class="card-action">
+                                <div class="input-field col s12">
+                                    <button class="btn" (click)="resetForm(restaurantform)">Clean</button>
+                                    <button class="btn right">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s7">
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Kind</th>
+                    <th>Direcction</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let restaurant of restaurantsService.restaurants">
+                        <td>{{restaurant.name}}</td>
+                        <td>{{restaurant.kind}}</td>
+                        <td>{{restaurant.direction}}</td>
+                        <td>
+                            <a (click)="editRestaurant(restaurant)">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a (click)="deleteRestaurant(restaurant._id)">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
